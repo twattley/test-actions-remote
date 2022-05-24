@@ -22,6 +22,7 @@ runs:
       with:
         repository: twattley/test-actions-remote
         token: ${{ inputs.github-pat }}
+        path: test-actions-remote/helper
     
     - name: list files
       run: | 
