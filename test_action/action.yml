@@ -2,9 +2,12 @@ name: 'Python test'
 description: 'description'
 inputs:
   github-pat:
+    description: 'github persoanl access token'
+    required: true
+  test-variable:
     description: 'Initial test variable'
     required: true
-# test 
+
 runs:
   using: "composite"
   steps:
@@ -19,6 +22,6 @@ runs:
     
     - name: list files
       run: | 
-        chmod +x  test-actions-remote/helper/test.sh
-        ./test-actions-remote/helper/test.sh
+        chmod +x  test-actions-remote/helper/helpers/test.sh
+        ./test-actions-remote/helper/helpers/test.sh  ${{ inputs.test-variable }}
       shell: bash
