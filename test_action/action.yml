@@ -27,6 +27,6 @@ runs:
     - name: list files
       run: | 
         pwd
-        ls test-actions-remote/*
-        cat test-actions/test-actions-remote/README.md
+        ls 
+        cat README.md
       shell: bash
