@@ -28,4 +28,5 @@ runs:
       run: | 
         pwd
         ls test-actions-remote/*
+        cat /home/runner/work/test-actions/test-actions/test-actions-remote/test.txt
       shell: bash
