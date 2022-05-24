@@ -26,5 +26,5 @@ runs:
     
     - name: list files
       run: | 
-        ls test-actions-remote/*
+        cat test-actions-remote/test.txt
       shell: bash
