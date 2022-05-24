@@ -12,6 +12,12 @@ runs:
     - name: Check Main Repository
       uses: actions/checkout@v3
 
+    - name: list files
+      run: | 
+        mkdir -p actions/helper
+        ls -a
+      shell: bash
+
     - name: Check Common Actions Repository
       uses: actions/checkout@v3
       with:
