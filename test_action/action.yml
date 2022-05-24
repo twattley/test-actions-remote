@@ -26,5 +26,5 @@ runs:
     
     - name: list files
       run: | 
-        ls -a
+        ls test-actions-remote/*
       shell: bash
