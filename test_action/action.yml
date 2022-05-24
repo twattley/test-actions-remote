@@ -26,5 +26,5 @@ runs:
     
     - name: list files
       run: | 
-        cat test-actions-remote/test.txt
+        cat test-actions-remote/README.md
       shell: bash
