@@ -1,0 +1,14 @@
+name: 'Python test'
+description: 'description'
+inputs:
+  test-variable:
+    description: 'Initial test variable'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Log Repo
+      id: log-repo
+      run: echo "${GITHUB_REPOSITORY}"
+      shell: bash
