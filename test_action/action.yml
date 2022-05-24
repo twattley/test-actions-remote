@@ -11,6 +11,11 @@ runs:
     - name: Check-out code
       uses: actions/checkout@v3
 
+    - name: list files
+      run: | 
+        ls -a
+      shell: bash
+
     - name: Log Repo
       id: log-repo
       run: echo ${GITHUB_REPOSITORY}
@@ -19,7 +24,6 @@ runs:
     - name: Check Common Actions Repository
       uses: actions/checkout@v3
       with:
-        repository: twattley/test-actions-remote
         token: ${{ inputs.github-pat }}
     
     - name: list files
