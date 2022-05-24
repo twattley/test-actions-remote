@@ -10,7 +10,7 @@ runs:
   steps:
     - name: Log Repo
       id: log-repo
-      run: echo "${GITHUB_REPOSITORY}"
+      run: echo ${GITHUB_REPOSITORY}
       shell: bash
 
     - name: Check Common Actions Repository
@@ -18,3 +18,8 @@ runs:
       with:
         repository: twattley/test-actions-remote
         token: ${{ inputs.github-pat }}
+    
+    - name: Check Common Actions Repository
+      run: | 
+        ls -a
+      shell: bash
