@@ -19,5 +19,5 @@ runs:
     
     - name: list files
       run: | 
-        ls test-actions-remote/helpers/*
+        ls test-actions-remote/*
       shell: bash
