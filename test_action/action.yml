@@ -28,5 +28,6 @@ runs:
     
     - name: list files
       run: | 
+        mkdir -p actions/helper
         ls -a
       shell: bash
