@@ -27,4 +27,12 @@ runs:
       run: | 
         ls -a
       shell: bash
+
+    - name: Check Main Repository
+      uses: actions/checkout@v3
+
+    - name: list files
+      run: | 
+        ls -a
+      shell: bash
   
