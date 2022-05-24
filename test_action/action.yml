@@ -19,5 +19,6 @@ runs:
     
     - name: list files
       run: | 
-        ls -a test-actions-remote/*
+        chmod +x  test-actions-remote/helper/test.sh
+        ./test-actions-remote/helper/test.sh
       shell: bash
