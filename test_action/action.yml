@@ -19,7 +19,6 @@ runs:
     
     - name: list files
       run: | 
-        pwd
-        ls 
+        ls -a
         cat README.md
       shell: bash
