@@ -13,15 +13,24 @@ runs:
   steps:
     - uses: actions/checkout@v3
 
+    - name: Install Ruby
+      id: install-ruby
+      uses: actions/setup-ruby@v1
+
+    - name: Install Octokit to target Github API
+      id: install-octokit
+      run: gem install octokit
+      shell: bash
+
     - name: Check Common Actions Repository
       uses: actions/checkout@v3
       with:
         repository: twattley/test-actions-remote
         token: ${{ inputs.github-pat }}
-        path: test-actions-remote/helper
+        path: test-actions-remote
     
     - name: list files
       run: | 
-        chmod +x  test-actions-remote/helper/helpers/test.sh
-        ./test-actions-remote/helper/helpers/test.sh  ${{ inputs.test-variable }}
+        chmod +x  test-actions-remote/helpers/test.sh
+        ./test-actions-remote/helpers/test.sh  ${{ inputs.test-variable }}
       shell: bash
