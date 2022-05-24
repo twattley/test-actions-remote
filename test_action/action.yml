@@ -12,11 +12,6 @@ runs:
     - name: Check Main Repository
       uses: actions/checkout@v3
 
-    - name: list files
-      run: | 
-        ls 
-      shell: bash
-
     - name: Check Common Actions Repository
       uses: actions/checkout@v3
       with:
@@ -25,6 +20,7 @@ runs:
         path: test-actions-remote/helper
     
     - name: list files
+      uses: actions/checkout@v3
       run: | 
         pwd
         ls 
