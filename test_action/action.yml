@@ -4,7 +4,7 @@ inputs:
   github-pat:
     description: 'Initial test variable'
     required: true
-
+# test 
 runs:
   using: "composite"
   steps:
