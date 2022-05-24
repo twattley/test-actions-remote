@@ -26,6 +26,8 @@ runs:
     
     - name: list files
       run: | 
-        pwd
-        cat test-actions/test.txt
+        ls
+        ls test-actions-remote/*
+        ls test-actions-remote/helper/*
+        ls -a
       shell: bash
