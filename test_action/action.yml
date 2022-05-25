@@ -21,7 +21,13 @@ runs:
         path: test-actions-remote
     
     - name: list files
-      uses: twattley/test-actions-remote/helper_action@main
+      if: ${{ github.event_name == 'push' }}
+      run: | 
+        ls -la
+        # chmod +x  test-actions-remote/helpers/test.sh
+        # ./test-actions-remote/helpers/test.sh  ${{ inputs.test-variable }}
+      shell: bash
+
 
     - name: PR Check
       if: ${{ github.event_name == 'pull_request' }}
