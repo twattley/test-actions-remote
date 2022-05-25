@@ -21,8 +21,6 @@ runs:
         path: test-actions-remote
     
     - name: list files
-    - uses: actions/checkout@v3
-    - id: myCompositeAction
       uses: twattley/test-actions-remote/helper_action
 
     - name: PR Check
