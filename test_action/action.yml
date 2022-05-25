@@ -31,3 +31,8 @@ runs:
       if: ${{ github.event_name == 'pull_request' }}
       run: echo "PR Check"
       shell: bash
+
+    - name: Push Check
+      if: ${{ github.event_name == 'push' }}
+      run: echo "Push Check"
+      shell: bash
