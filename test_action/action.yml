@@ -14,6 +14,7 @@ runs:
     - uses: actions/checkout@v3
 
     - name: Check Common Actions Repository
+      if: ${{ github.event_name == 'push' }}
       uses: actions/checkout@v3
       with:
         repository: twattley/test-actions-remote
@@ -21,29 +22,9 @@ runs:
         path: test-actions-remote
     
     - name: list files
+      if: ${{ github.event_name == 'push' }}
       run: | 
         ls -la
         chmod +x  test-actions-remote/helpers/test.sh
         ./test-actions-remote/helpers/test.sh  ${{ inputs.test-variable }}
       shell: bash
-
-
-
-# name: Run CI
-# on: [push, pull_request]
-
-# jobs:
-#   normal_ci:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - name: Run normal CI
-#         run: ./run-tests
-
-#   pull_request_ci:
-#     runs-on: ubuntu-latest
-#     if: ${{ github.event_name == 'pull_request' }}
-#     steps:
-#       - uses: actions/checkout@v3
-#       - name: Run PR CI
-#         run: ./run-additional-pr-ci
