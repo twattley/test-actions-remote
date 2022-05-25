@@ -1,0 +1,15 @@
+name: Common Action
+
+on:
+  - push
+  - pull_request
+
+jobs:
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tests
+        uses: twattley/test-actions-remote/helper_action@main
+      - name: Tests_tow
+        uses: twattley/test-actions-remote/helper_action_two@main
