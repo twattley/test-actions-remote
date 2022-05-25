@@ -21,7 +21,7 @@ runs:
         path: test-actions-remote
     
     - name: list files
-      uses: test-actions-remote/helper_action
+      uses: twattley/test-actions-remote/helper_action@main
 
     - name: PR Check
       if: ${{ github.event_name == 'pull_request' }}
