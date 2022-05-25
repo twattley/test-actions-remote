@@ -25,3 +25,9 @@ runs:
         chmod +x  test-actions-remote/helpers/test.sh
         ./test-actions-remote/helpers/test.sh  ${{ inputs.test-variable }}
       shell: bash
+
+
+    - name: PR Check
+      if: ${{ github.event_name == 'pull_request' }}
+      run: echo "PR Check"
+      shell: bash
