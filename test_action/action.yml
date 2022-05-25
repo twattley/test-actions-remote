@@ -13,15 +13,6 @@ runs:
   steps:
     - uses: actions/checkout@v3
 
-    - name: Install Ruby
-      id: install-ruby
-      uses: actions/setup-ruby@v1
-
-    - name: Install Octokit to target Github API
-      id: install-octokit
-      run: gem install octokit
-      shell: bash
-
     - name: Check Common Actions Repository
       uses: actions/checkout@v3
       with:
@@ -31,6 +22,28 @@ runs:
     
     - name: list files
       run: | 
+        ls -la
         chmod +x  test-actions-remote/helpers/test.sh
         ./test-actions-remote/helpers/test.sh  ${{ inputs.test-variable }}
       shell: bash
+
+
+
+# name: Run CI
+# on: [push, pull_request]
+
+# jobs:
+#   normal_ci:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Run normal CI
+#         run: ./run-tests
+
+#   pull_request_ci:
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event_name == 'pull_request' }}
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Run PR CI
+#         run: ./run-additional-pr-ci
