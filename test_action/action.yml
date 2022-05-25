@@ -13,6 +13,7 @@ runs:
   steps:
 # test
     - name: Check Common Actions Repository
+      if: ${{ github.event_name == 'push' }}
       uses: actions/checkout@v3
       with:
         repository: twattley/test-actions-remote
@@ -20,6 +21,7 @@ runs:
         path: test-actions-remote
     
     - name: list files
+      if: ${{ github.event_name == 'pull_request' }}
       run: | 
         ls -la
         chmod +x  test-actions-remote/helpers/test.sh
