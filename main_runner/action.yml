@@ -13,5 +13,5 @@ runs:
         repository: twattley/test-actions-remote
         token: ${{ inputs.github-pat }}
         path: test-actions-remote
-    - uses: test-actions-remote/helper_action
-    - uses: test-actions-remote/helper_action_two
+    - uses: twattley/test-actions-remote/helper_action@main
+    - uses: twattley/test-actions-remote/helper_action_two@main
