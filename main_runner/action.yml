@@ -14,4 +14,11 @@ runs:
         token: ${{ inputs.github-pat }}
         path: test-actions-remote
     - uses: twattley/test-actions-remote/helper_action@main
+      with:
+          repository: twattley/test-actions-remote
+          token: ${{ inputs.github-pat }}
     - uses: twattley/test-actions-remote/helper_action_two@main
+      with:
+          repository: twattley/test-actions-remote
+          token: ${{ inputs.github-pat }}
+      
