@@ -24,7 +24,7 @@ runs:
       if: ${{ github.event_name == 'push' }}
       run: | 
         ls -la
-        # chmod +x  test-actions-remote/helpers/test.sh
+        # chmod +x  test-actions-remote/helpers/*
         # ./test-actions-remote/helpers/test.sh  ${{ inputs.test-variable }}
       shell: bash
 
