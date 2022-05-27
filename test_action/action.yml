@@ -20,12 +20,17 @@ runs:
         token: ${{ inputs.github-pat }}
         path: test-actions-remote
     
-    - name: list files
+    - name: hello
       if: ${{ github.event_name == 'push' }}
       run: | 
-        ls -la
-        chmod +x  test-actions-remote/helpers/test.sh
-        ./test-actions-remote/helpers/test.sh  ${{ inputs.test-variable }}
+        chmod +x  test-actions-remote/helpers/*
+        ./test-actions-remote/helpers/hello.sh  ${{ inputs.test-variable }}
+      shell: bash
+
+    - name: world
+      if: ${{ github.event_name == 'push' }}
+      run: | 
+        ./test-actions-remote/helpers/world.sh  ${{ inputs.test-variable }}
       shell: bash
 
 
