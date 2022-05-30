@@ -21,12 +21,8 @@ runs:
         token: ${{ inputs.github-pat }}
         path: test-actions-remote
     
-    - name: hello
-      if: ${{ github.event_name == 'push' }}
-      run: | 
-        chmod +x  test-actions-remote/helpers/*
-        ./test-actions-remote/helpers/hello.sh  ${{ inputs.test-variable }}
-      shell: bash
+    - name: composite check
+      uses: twattley/test-actions-remote/input_action@main
 
     - name: world
       if: ${{ github.event_name == 'push' }}
