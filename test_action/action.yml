@@ -23,6 +23,8 @@ runs:
     
     - name: composite check
       uses: twattley/test-actions-remote/input_action@main
+      with:
+        test-variable: ${{ inputs.test-variable }}
 
     - name: composite check
       uses: twattley/test-actions-remote/helper_action@main
