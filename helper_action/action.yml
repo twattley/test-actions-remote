@@ -1,0 +1,9 @@
+name: 'Python test'
+description: 'description'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check Common Actions Repository
+      run: echo "Composite Check"
+      shell: bash

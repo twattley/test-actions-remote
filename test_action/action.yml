@@ -12,6 +12,7 @@ runs:
   using: "composite"
   steps:
 # test
+
     - name: Check Common Actions Repository
       if: ${{ github.event_name == 'push' }}
       uses: actions/checkout@v3
@@ -33,6 +34,9 @@ runs:
         ./test-actions-remote/helpers/world.sh  ${{ inputs.test-variable }}
       shell: bash
 
+    - name: composite check
+      if: ${{ github.event_name == 'push' }}
+      uses: twattley/test-actions-remote/helper_action@main
 
     - name: PR Check
       if: ${{ github.event_name == 'pull_request' }}
