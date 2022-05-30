@@ -4,6 +4,8 @@ description: 'description'
 runs:
   using: "composite"
   steps:
+  
     - name: Check Common Actions Repository
+      if: ${{ github.event_name == 'push' }}
       run: echo "Composite Check"
       shell: bash
