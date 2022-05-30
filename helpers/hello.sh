@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo "Hello $1"
+if [ "$1" == "Hurrah" ]; then
+  echo "this worked"
+fi
