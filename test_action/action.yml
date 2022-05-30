@@ -22,7 +22,7 @@ runs:
         path: test-actions-remote
     
     - name: composite check
-      uses: twattley/test-actions-remote/input_action@main
+      uses: twattley/test-actions-remote/nested/nested_action@main
       with:
         test-variable: ${{ inputs.test-variable }}
 
