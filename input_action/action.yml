@@ -1,11 +1,17 @@
 name: 'Python test'
 description: 'description'
+inputs:
+  test-variable:
+    description: 'Initial test variable'
+    required: true
 
 runs:
   using: "composite"
   steps:
   
-    - name: Check Common Actions Repository
+    - name: hello
       if: ${{ github.event_name == 'push' }}
-      run: echo "Composite Check"
+      run: | 
+        chmod +x  test-actions-remote/helpers/*
+        ./test-actions-remote/helpers/hello.sh  ${{ inputs.test-variable }}
       shell: bash

@@ -24,12 +24,6 @@ runs:
     - name: composite check
       uses: twattley/test-actions-remote/input_action@main
 
-    - name: world
-      if: ${{ github.event_name == 'push' }}
-      run: | 
-        ./test-actions-remote/helpers/world.sh  ${{ inputs.test-variable }}
-      shell: bash
-
     - name: composite check
       uses: twattley/test-actions-remote/helper_action@main
 
