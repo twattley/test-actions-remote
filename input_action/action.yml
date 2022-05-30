@@ -1,9 +1,5 @@
 name: 'Python test'
 description: 'description'
-inputs:
-  test-variable:
-    description: 'Initial test variable'
-    required: true
 
 runs:
   using: "composite"
