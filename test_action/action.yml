@@ -4,6 +4,9 @@ inputs:
   github-pat:
     description: 'github persoanl access token'
     required: true
+  test-variable:
+    description: 'Initial test variable'
+    required: true
 
 runs:
   using: "composite"
@@ -24,12 +27,12 @@ runs:
     - name: composite check
       uses: twattley/test-actions-remote/helper_action@main
 
-    - name: PR Check
-      if: ${{ github.event_name == 'pull_request' }}
-      run: echo "PR Check"
-      shell: bash
+    # - name: PR Check
+    #   if: ${{ github.event_name == 'pull_request' }}
+    #   run: echo "PR Check"
+    #   shell: bash
 
-    - name: Push Check
-      if: ${{ github.event_name == 'push' }}
-      run: echo "Push Check"
-      shell: bash
+    # - name: Push Check
+    #   if: ${{ github.event_name == 'push' }}
+    #   run: echo "Push Check"
+    #   shell: bash
