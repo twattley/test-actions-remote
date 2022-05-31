@@ -1,9 +1,13 @@
 name: 'Python test'
 description: 'description'
 inputs:
+  github-pat:
+    description: 'github persoanl access token'
+    required: true
   test-variable:
     description: 'Initial test variable'
     required: true
+
 
 runs:
   using: "composite"
