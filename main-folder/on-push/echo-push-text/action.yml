@@ -16,14 +16,14 @@ runs:
       if: ${{ github.event_name == 'push' }}
       uses: actions/checkout@v3
       with:
-        github-pat: ${{ inputs.github-pat }}
+        token: ${{ inputs.github-pat }}
 
     - name: Check Common Actions Repository
       if: ${{ github.event_name == 'push' }}
       uses: actions/checkout@v3
       with:
         repository: twattley/test-actions-remote
-        github-pat: ${{ inputs.github-pat }}
+        token: ${{ inputs.github-pat }}
         path: test-actions-remote
 
     - name: PR Check
