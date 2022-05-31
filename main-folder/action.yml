@@ -13,6 +13,8 @@ runs:
   steps:    
     - name: Check-out code
       uses: actions/checkout@v3
+      with:
+        token: ${{ inputs.github-pat }}
       
     - name: login echo
       uses: twattley/test-actions-remote/main-folder/on-push/echo-push-text@main
