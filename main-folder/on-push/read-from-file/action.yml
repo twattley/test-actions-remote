@@ -13,6 +13,6 @@ runs:
       if: ${{ github.event_name == 'push' }}
       run: |
         echo "Hello from inside a test/nested action"
-        chmod +x  test-actions-remote/helpers/*
-        ./test-actions-remote/helpers/hello.sh  ${{ inputs.test-variable }}
+        chmod +x  test-actions-remote/main-folder/helpers/*
+        ./test-actions-remote/main-folder/helpers/hello.sh  ${{ inputs.test-variable }}
       shell: bash
