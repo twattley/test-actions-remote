@@ -1,5 +1,9 @@
 echo 're run from PR'
 echo $1 $2 $3
 echo 'env var = '
-echo $TEST_VAR
+if [ "$TEST_VAR" ] == 'hurrah'; then
+  echo 'this worked'
+else
+  echo 'this did not work'
+fi
 echo 'env var end'
