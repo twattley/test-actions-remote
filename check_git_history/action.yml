@@ -30,7 +30,7 @@ runs:
       with:
         test-variable: ${{ inputs.test-variable }}
       env:
-        TEST_VAR: ${{ inputs.test-variable }}
+        TEST_VAR: 'hello'
 
     - name: Check Git Semi Linear
       if: ${{ github.event_name == 'push' }}
