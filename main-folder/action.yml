@@ -24,19 +24,19 @@ runs:
         repository: twattley/test-actions-remote
         token: ${{ inputs.github-pat }}
         path: test-actions-remote
-            
+
     - name: login echo
-      uses: twattley/test-actions-remote/main-folder/on-push/echo-push-text@main
+      uses: twattley/test-actions-remote/main-folder/echo-push-text@main
       with:
         github-pat: ${{ inputs.github-pat }}
 
     - name: read file
-      uses: twattley/test-actions-remote/main-folder/on-push/read-from-file@main
+      uses: twattley/test-actions-remote/main-folder/read-from-file@main
       with:
         test-variable: ${{ inputs.test-variable }}
 
     - name: read file
-      uses: twattley/test-actions-remote/main-folder/on-pull-request/echo-pr-text@main
+      uses: twattley/test-actions-remote/main-folder/echo-pr-text@main
 
 
 
