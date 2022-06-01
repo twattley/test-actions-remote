@@ -1,9 +1,10 @@
-echo 're run from PR'
-echo $1 $2 $3
-echo 'env var = '
-if [ "hello"  == 'hello']; then
-  echo 'this worked'
+#!/bin/bash
+ 
+str1="Hello Bash"
+str2="Hello Bash"
+ 
+if [ "$str1" == "$str2" ]; then
+    echo "Strings are equal"
 else
-  echo 'this did not work'
+    echo "Strings are not equal"
 fi
-echo 'env var end'
