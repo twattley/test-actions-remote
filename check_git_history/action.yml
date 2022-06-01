@@ -1,0 +1,39 @@
+name: "Check Git History"
+description: "Composition of functions desgined to check the linearity of a git repositories history"
+inputs:
+  octo-kit-access-token:
+    description: "Access Token for Octokit"
+    required: true
+  github-pat:
+    description: "Access Token for Shell Organisation Github API"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check-out code
+      uses: actions/checkout@v3
+      with:
+        token: ${{ inputs.github-pat }}
+        fetch-depth: 0 # Fetch entire git history
+
+    - name: Checkout Code in common Github Actions Repository
+      uses: actions/checkout@v3
+      with:
+        repository: sede-res/rpm-actions
+        token: ${{ inputs.github-pat }}
+        path: rpm-actions
+
+    - name: Notify PR's based on branch
+      if: ${{ github.event_name == 'push' }}
+      uses: sede-res/rpm-actions/check_git_history/notify-prs-based-on-branch@main
+      with:
+        octo-kit-access-token: ${{ inputs.octo-kit-access-token }}
+
+    - name: Check Git Semi Linear
+      if: ${{ github.event_name == 'push' }}
+      uses: sede-res/rpm-actions/check_git_history/check-git-semi-linear@main
+
+    - name: Check Git Semi Linear for PR
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: sede-res/rpm-actions/check_git_history/check-git-semi-linear-for-pr@main

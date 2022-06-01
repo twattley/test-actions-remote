@@ -1,0 +1,29 @@
+name: 'notify-prs-based-on-branch'
+description: 'notify-prs-based-on-branch'
+inputs:
+  octo-kit-access-token:
+    description: "Access token for Octokit"
+    required: true
+    
+runs:
+  using: "composite"
+  steps:      
+    - name: Install Ruby
+      id: install-ruby
+      uses: actions/setup-ruby@v1
+
+    - name: Install Octokit to target Github API
+      id: install-octokit
+      run: gem install octokit
+      shell: bash
+
+    - name: Notify other pipelines of the push
+      env:
+        OCTOKIT_ACCESS_TOKEN: ${{ inputs.octo-kit-access-token }}
+      run: |
+        chmod +x rpm-actions/helpers/*
+        rpm-actions/check_git_history/helpers/re_run_pull_requests_from \
+          "${GITHUB_REPOSITORY}" \
+          "${GITHUB_REF##*/}" \
+          check-git-semi-linear-for-pr
+      shell: bash

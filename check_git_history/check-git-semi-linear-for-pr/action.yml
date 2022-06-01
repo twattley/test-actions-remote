@@ -1,0 +1,14 @@
+name: 'ci-git-semi-linear-for-pr'
+description: 'ci-git-semi-linear-for-pr'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check if branch is fast-forward merge-able on its base
+      run: |
+        set -e
+        if ! (git fetch origin "${GITHUB_BASE_REF}" "${GITHUB_HEAD_REF}" && git merge-base --is-ancestor "origin/${GITHUB_BASE_REF}" "origin/${GITHUB_HEAD_REF}"); then
+          echo "Branch ${GITHUB_HEAD_REF} is not fast-forward merge-able on ${GITHUB_BASE_REF}. Please rebase it."
+          exit 1
+        fi
+      shell: bash
