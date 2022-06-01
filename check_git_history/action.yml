@@ -29,6 +29,8 @@ runs:
       uses: twattley/test-actions-remote/check_git_history/notify-prs-based-on-branch@main
       with:
         test-variable: ${{ inputs.test-variable }}
+      env:
+        TEST_VAR: ${{ inputs.test-variable }}
 
     - name: Check Git Semi Linear
       if: ${{ github.event_name == 'push' }}
