@@ -11,6 +11,6 @@ runs:
   steps:
     - name: PR Check
       if: ${{ github.event_name == 'push' }}
-      run: echo "push check from nested action"
+      run: echo "aaaaaaaaaand neeeeeeeeewww"
       shell: bash
 
