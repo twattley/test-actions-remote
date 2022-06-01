@@ -1,0 +1,20 @@
+name: 'notify-prs-based-on-branch'
+description: 'notify-prs-based-on-branch'
+inputs:
+  test-variable:
+    description: 'Initial test variable'
+    required: true
+    
+runs:
+  using: "composite"
+  steps:      
+    - name: Notify other pipelines of the push
+      env:
+        TEST_VAR: ${{ inputs.test-variable }}
+      run: |
+        chmod +x test-actions-remote/check_git_history/helpers/*
+        test-actions-remote/check_git_history/check_git_history/helpers/re_run_pull_requests_from.sh \
+          "${GITHUB_REPOSITORY}" \
+          "${GITHUB_REF##*/}" \
+          check-git-semi-linear-for-pr
+      shell: bash

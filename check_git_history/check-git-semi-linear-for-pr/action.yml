@@ -1,0 +1,10 @@
+name: 'ci-git-semi-linear-for-pr'
+description: 'ci-git-semi-linear-for-pr'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check if branch is fast-forward merge-able on its base
+      run: |
+        echo "Checking semi-linear for PR"
+      shell: bash
