@@ -27,8 +27,6 @@ runs:
 
     - name: login echo
       uses: twattley/test-actions-remote/main-folder/echo-push-text@main
-      with:
-        github-pat: ${{ inputs.github-pat }}
 
     - name: read file
       uses: twattley/test-actions-remote/main-folder/read-from-file@main
