@@ -13,7 +13,7 @@ runs:
         TEST_VAR: ${{ inputs.test-variable }}
       run: |
         chmod +x test-actions-remote/check_git_history/helpers/*
-        test-actions-remote/check_git_history/helpers/re_run_pull_requests_from.sh \
+        test-actions-remote/check_git_history/helpers/re_run_from_pr.sh \
           "${GITHUB_REPOSITORY}" \
           "${GITHUB_REF##*/}" \
           check-git-semi-linear-for-pr
