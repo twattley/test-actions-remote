@@ -11,12 +11,13 @@ inputs:
 runs:
   using: "composite"
   steps:      
-    - name: Check Repository
+    - name: Check-out code
       uses: actions/checkout@v3
       with:
         token: ${{ inputs.github-pat }}
+        fetch-depth: 0 # Fetch entire git history
 
-    - name: Check Common Actions Repository
+    - name: Checkout Code in common Github Actions Repository
       uses: actions/checkout@v3
       with:
         repository: twattley/test-actions-remote
