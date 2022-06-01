@@ -11,6 +11,6 @@ runs:
   steps:
     - name: PR Check
       if: ${{ github.event_name == 'push' }}
-      run: echo "aaaaaaaaaand neeeeeeeeewww"
+      run: echo "aaaaaaaaaand still"
       shell: bash
 
