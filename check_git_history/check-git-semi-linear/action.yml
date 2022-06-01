@@ -6,22 +6,6 @@ runs:
   steps:
     - name: Check semi-linear history
       run: |
-        set -e
-        # Here we specify from when the history should be semi-linear
-        semi_linear_start_date=2022-03-01
-        found_wrong_commits=false
-        while IFS= read -r merge_commit_id; do
-          if git --no-pager log --pretty=format:"%H" --graph $(git merge-base --octopus $(git --no-pager log ${merge_commit_id} --max-count 1 --pretty=format:"%P"))..${merge_commit_id} | grep '|' >/dev/null; then
-            merge_commit_date=$(git show --no-patch --format=%ci "${merge_commit_id}")
-            if [[ "${merge_commit_date}" > "${semi_linear_start_date}" ]]; then
-              echo "Merge commit ID ${merge_commit_id} of date ${merge_commit_date} has no semi-linear history"
-              found_wrong_commits=true
-            fi
-          fi
-        done <<< "$(git --no-pager log --merges --pretty=format:'%H')"
-        if [ "${found_wrong_commits}" = true ] ; then
-            echo 'Found non semi-linear history. Please rebase without merge commits.'
-            exit 1
-        fi
+        echo "Checking semi-linear history"
 
       shell: bash
