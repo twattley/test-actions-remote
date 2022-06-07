@@ -9,8 +9,6 @@ runs:
   using: "composite"
   steps:      
     - name: Notify other pipelines of the push
-      env:
-        TEST_VAR: ${{ inputs.test-variable }}
       run: |
         chmod +x test-actions-remote/check_git_history/helpers/*
         test-actions-remote/check_git_history/helpers/re_run_from_pr.sh \
