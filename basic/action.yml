@@ -7,4 +7,6 @@ runs:
   steps:
     - name: Check-out code
       uses: actions/checkout@v3
-      run: Echo hello
+      run: |
+        echo hello
+      shell: bash
