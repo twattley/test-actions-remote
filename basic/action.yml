@@ -1,12 +1,19 @@
 name: "Check Git History"
 description: "Composition of functions desgined to check the linearity of a git repositories history"
-
+inputs:
+  github-pat:
+    description: 'github persoanl access token'
+    required: true
+  test-variable:
+    description: 'Initial test variable'
+    required: true
 # test
 runs:
   using: "composite"
   steps:
     - name: Check-out code
       uses: actions/checkout@v3
+    - name: check access to client
       run: |
-        echo hello
+        ls -la
       shell: bash
