@@ -15,5 +15,5 @@ runs:
       uses: actions/checkout@v3
     - name: check access to client
       run: |
-        ls -la
+        echo dev
       shell: bash
